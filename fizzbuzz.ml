@@ -1,7 +1,7 @@
 let modulo answer modnumber n =
   if n mod modnumber = 0 then Some answer else None
 
-let engine ~empty ~f_agg ~rules ~defaultrule userinfo =
+let engine empty f_agg rules defaultrule userinfo =
   let applyrule r = match (r userinfo) with Some answer -> answer | None -> empty in
   rules
   |> List.map applyrule
