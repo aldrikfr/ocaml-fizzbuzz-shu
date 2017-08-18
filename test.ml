@@ -3,7 +3,7 @@ open OUnit2
 let assert_numbers expected params =
 		fun ctxt ->
 		params
-		|> List.iter (fun p -> assert_equal	~msg:("param:"^(string_of_int p)) expected (Fizzbuzz.play p))
+		|> List.iter (fun p -> assert_equal ~msg:("param:"^(string_of_int p)) expected (Fizzbuzz.play p))
 
 let test_from_params = (fun (exp,params) -> exp >:: assert_numbers exp params)
 
