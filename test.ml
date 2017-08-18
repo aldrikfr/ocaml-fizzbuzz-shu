@@ -8,7 +8,7 @@ let assert_numbers expected params =
 let test_from_params = (fun (exp,params) -> exp >:: assert_numbers exp params)
 
 let () =
-	"FizzBuzz game" >:::(
+	"FizzBuzzBang game" >:::(
 		[("1",[1]) ; ("Fizz",[3;6]) ; ("Buzz",[5;10]) ; ("FizzBuzzBang",[105])]
 		|> List.map test_from_params)
 	|> run_test_tt_main
