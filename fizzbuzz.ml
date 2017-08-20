@@ -9,5 +9,5 @@ let engine empty f_agg rules defaultrule userinfo =
   |> List.fold_left f_agg empty
   |> fun s -> if s = empty then defaultrule userinfo else s
 
-let game_rules = [modulo "Fizz" 3;modulo "Buzz" 5;modulo "Bang" 7] in
+let game_rules = [modulo "Fizz" 3;modulo "Buzz" 5;modulo "Bang" 7] 
 let play = engine "" (^) game_rules string_of_int
