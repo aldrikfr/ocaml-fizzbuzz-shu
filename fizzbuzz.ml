@@ -9,8 +9,7 @@ type 'a engine_rules = {
 let fizzbuzzbang_r = {
   rules = [modulo "Fizz" 3;modulo "Buzz" 5;modulo "Bang" 7];
   default_rule = string_of_int ;
-  answer_agg = (^) ;
-  empty = ""
+  answer_agg = (^) ; empty = ""
 }
 
 let engine game number =
