@@ -5,7 +5,7 @@ type 'a engine_rules = {
   rules : (int -> 'a option) list;
   default_rule : (int -> 'a) ;
   answer_agg : ('a -> 'a -> 'a) ;
-  empty : string
+  empty : 'a
 }
 
 let fizzbuzzbang_r = {
