@@ -1,4 +1,4 @@
-let modulo answer modnumber n =
+let multiple answer modnumber n =
   if n mod modnumber = 0 then Some answer else None
 
 type 'a engine_rules = {
@@ -7,7 +7,7 @@ type 'a engine_rules = {
 }
 
 let fizzbuzzbang_rules = {
-  rules = [modulo "Fizz" 3;modulo "Buzz" 5;modulo "Bang" 7];
+  rules = [multiple "Fizz" 3;multiple "Buzz" 5;multiple "Bang" 7];
   default_rule = string_of_int ;
   answer_agg = (^) ; answer_empty = ""
 }
