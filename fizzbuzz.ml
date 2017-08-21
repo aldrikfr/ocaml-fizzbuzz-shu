@@ -3,21 +3,21 @@ let modulo answer modnumber n =
 
 type 'a engine_rules = {
   rules : (int -> 'a option) list ; default_rule : (int -> 'a) ;
-  answer_agg : ('a -> 'a -> 'a) ; empty : 'a
+  answer_agg : ('a -> 'a -> 'a) ; answer_empty : 'a
 }
 
-let fizzbuzzbang_r = {
+let fizzbuzzbang_rules = {
   rules = [modulo "Fizz" 3;modulo "Buzz" 5;modulo "Bang" 7];
   default_rule = string_of_int ;
-  answer_agg = (^) ; empty = ""
+  answer_agg = (^) ; answer_empty = ""
 }
 
 let engine game number =
   let applyrule r = match (r number) with
-   Some asw -> asw | None -> game.empty in
+   Some asw -> asw | None -> game.answer_empty in
   game.rules
   |> List.map applyrule
-  |> List.fold_left game.answer_agg game.empty
-  |> fun s -> if s = game.empty then game.default_rule number else s
+  |> List.fold_left game.answer_agg game.answer_empty
+  |> fun s -> if s = game.answer_empty then game.default_rule number else s
 
-let play = engine fizzbuzzbang_r
+let play = engine fizzbuzzbang_rules
