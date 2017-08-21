@@ -2,10 +2,8 @@ let modulo answer modnumber n =
   if n mod modnumber = 0 then Some answer else None
 
 type 'a engine_rules = {
-  rules : (int -> 'a option) list;
-  default_rule : (int -> 'a) ;
-  answer_agg : ('a -> 'a -> 'a) ;
-  empty : 'a
+  rules : (int -> 'a option) list ; default_rule : (int -> 'a) ;
+  answer_agg : ('a -> 'a -> 'a) ; empty : 'a
 }
 
 let fizzbuzzbang_r = {
@@ -22,6 +20,5 @@ let engine game number =
   |> List.map applyrule
   |> List.fold_left game.answer_agg game.empty
   |> fun s -> if s = game.empty then game.default_rule number else s
-
 
 let play = engine fizzbuzzbang_r
