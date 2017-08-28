@@ -1,4 +1,6 @@
-open Functory
+open Functory.Cores
+ let () =
+   set_number_of_cores 4
 
 let multiple answer modnumber n =
   if n mod modnumber = 0 then Some answer else None
@@ -16,8 +18,7 @@ let engine game number =
   let applyrule r = match (r number) with
    Some asw -> asw | None -> game.answer_empty in
   game.rules
-  |> List.map applyrule
-  |> List.fold_left game.answer_agg game.answer_empty
+  |> map_fold_a ~f:applyrule ~fold:game.answer_agg game.answer_empty
   |> fun s -> if s = game.answer_empty then game.default_rule number else s
 
 let play = engine fizzbuzzbang_rules
