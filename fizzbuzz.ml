@@ -5,4 +5,4 @@ let multiple answer modnumber n =
 let play = {
   rules = [multiple "Fizz" 3 ; multiple "Buzz" 5; multiple "Bang" 7];
   default_rule = string_of_int ;
-  answer_agg = (^) ; answer_empty = ""} |> engine
+  f_aggregate = (^) ; empty = ""} |> engine
